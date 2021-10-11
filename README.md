@@ -1,5 +1,19 @@
 # rookmultisite
 rook multisites PoC
+
+#Enable debig log
+
+The debug can be enabled for rook-ceph-operator by adding the ROOK_LOG_LEVEL: DEBUG in the rook-ceph-operator-config configmap.
+
+$ oc edit cm rook-ceph-operator-config
+
+...
+
+data:
+ 
+ ROOK_LOG_LEVEL: DEBUG
+  
+
 # Site A
 
 oc patch OCSInitialization ocsinit -n openshift-storage --type json --patch  '[{ "op": "replace", "path": "/spec/enableCephTools", "value": true }]'
