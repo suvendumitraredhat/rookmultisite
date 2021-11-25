@@ -1,3 +1,4 @@
+  oc project openshift-storage
   oc get pods -n openshift-storage | grep -i cleanup
   for i in $(oc get node -l cluster.ocs.openshift.io/openshift-storage= -o jsonpath='{ .items[*].metadata.name }'); do oc debug node/${i} -- chroot /host  ls -l /var/lib/rook; done
   oc project default
